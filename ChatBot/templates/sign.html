@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ChatBot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="form signup">
+      <div class="a">
+        <a href="{{ url_for('index') }}" class="back-icon ai"><i class="fas fa-arrow-left"></i></a>
+        <header>ChatBot</header>
+      </div>
+      <form action="{{ url_for('sign') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <div class="error-text"></div>
+        <div class="field input">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Name" required>
+        </div>        
+        <div class="field input">
+          <label>Email Address</label>
+          <input type="text" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="field input">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter new password" required>
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="field button">
+          <input type="submit" name="submit" value="Signup">
+        </div>
+      </form>
+      <div class="link">Already signed up? <a href="{{ url_for('login') }}">Login now</a></div>
+    </section>
+  </div>
+
+  
+  <script src="{{ url_for('static', filename='javascript/pass-show-hide.js') }}"></script>
+</body>
+</html>

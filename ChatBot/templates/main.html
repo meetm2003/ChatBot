@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- UTF-8, a widely-used encoding for handling various characters and symbols. -->
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- This meta tag sets the viewport properties for responsive design, 
+    ensuring that the webpage adapts well to different screen sizes. -->
+
+  <title>ChatBot</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  <!-- These lines link to the favicon (the small icon displayed in the browser's tab) and the 
+    apple-touch-icon (used for iOS devices) for the webpage -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <!-- These lines link to external CSS files that provide styling and functionality to the webpage.  -->
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+        <div class="left-panel">
+            <h1>Speech Recognition with ChatBot</h1>
+            <form action="{{ url_for('speech_to_text') }}" method="post">
+                <button type="submit" class="btn-get-started scrollto">Start Speech Recognition</button>
+            </form>
+        </br>
+        <h3><ul id="speech-results">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            </ul>
+        </h3>
+        </div>
+        <div class="right-panel">
+            <div id="webchat" role="main"></div>
+        </div>
+    </div>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script>
+  window.botpressWebChat.init({
+      "composerPlaceholder": "Chat with ChatBot",
+      "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+      "botId": "7084ea04-6636-471e-b25c-412478560274",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "7084ea04-6636-471e-b25c-412478560274",
+      "webhookId": "967dbef0-8734-4098-8dbb-d3d789144e05",
+      "lazySocket": true,
+      "themeName": "prism",
+      "botName": "ChatBot",
+      "frontendVersion": "v1",
+      "useSessionStorage": true,
+      "enableConversationDeletion": true,
+      "showPoweredBy": true,
+      "theme": "prism",
+      "themeColor": "#2563eb",
+      "allowedOrigins": []
+  });
+</script>
+  </section><!-- End Hero -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+<body>
+  <div class="wrapper">
+    <section class="form login">
+      <div class="a">
+        <a href="{{ url_for('index') }}" class="back-icon ai"><i class="fas fa-arrow-left"></i></a>
+        <header>ChatBot</header>
+      </div>
+      <form action="{{ url_for('login') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+        
+        <div class="field input">
+          <label>Email Address</label>
+          <input type="text" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="field input">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter your password" required>
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="error-text">{{ error }}</div>
+        <div class="field button">
+          <input type="submit" name="submit" value="Login">
+        </div>
+      </form>
+      <div class="link">Not yet signed up? <a href="{{ url_for('sign') }}">Signup now</a></div>
+    </section>
+  </div>
+  
+</body>
+<script src="{{ url_for('static', filename='javascript/pass-show-hide.js') }}"></script>
+</html>
